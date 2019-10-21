@@ -3,13 +3,8 @@
         <app-header></app-header>
         <hr>
         <div class="row">
-            <servers
-                    :selectServer="selectServer"
-            ></servers>
-            <app-server-details
-                    :resetServer="resetServer"
-                    :selectedServer="selectedServer"
-            ></app-server-details>
+            <servers></servers>
+            <app-server-details></app-server-details>
         </div>
         <hr>
         <app-footer></app-footer>
@@ -28,19 +23,6 @@
             Servers,
             'app-server-details': ServerDetails,
             'app-footer': Footer
-        },
-        data() {
-            return {
-                selectedServer: null,
-            }
-        },
-        methods: {
-            selectServer: function (server) {
-                this.selectedServer = server;
-            },
-            resetServer: function () {
-                this.selectedServer = null;
-            },
         },
     }
 </script>

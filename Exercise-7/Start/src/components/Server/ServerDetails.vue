@@ -12,8 +12,24 @@
 </template>
 
 <script>
+  import { EventBus } from '../../main';
+
   export default {
-    props: ['selectedServer', 'resetServer'],
+    data() {
+      return {
+        selectedServer: null,
+      };
+    },
+    created() {
+      EventBus.$on('SELECT_SERVER', (server) => {
+        this.selectedServer = server;
+      });
+    },
+    methods: {
+      resetServer(event) {
+        EventBus.selectServer(null);
+      },
+    }
   };
 </script>
 

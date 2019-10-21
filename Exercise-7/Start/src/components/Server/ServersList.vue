@@ -4,7 +4,6 @@
       <servers-list-item
               v-for="server in servers"
               :server="server"
-              :selectServer="selectServer"
       ></servers-list-item>
     </ul>
   </div>
@@ -15,7 +14,6 @@
 
   export default {
     components: { ServersListItem },
-    props: ['selectServer'],
     data() {
       return {
         servers: [

@@ -18,12 +18,18 @@
 </template>
 
 <script>
+  import { EventBus } from '../../main';
+
   export default {
     props: {
       server: Object,
-      selectServer: Function,
     },
     inheritAttrs: false,
+    methods: {
+      selectServer(server) {
+          EventBus.selectServer(server);
+      },
+    },
   };
 </script>
 

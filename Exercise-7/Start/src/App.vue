@@ -3,8 +3,13 @@
         <app-header></app-header>
         <hr>
         <div class="row">
-            <servers></servers>
-            <app-server-details></app-server-details>
+            <servers
+                    :selectServer="selectServer"
+            ></servers>
+            <app-server-details
+                    :resetServer="resetServer"
+                    :selectedServer="selectedServer"
+            ></app-server-details>
         </div>
         <hr>
         <app-footer></app-footer>
@@ -14,7 +19,7 @@
 <script>
     import Header from './components/Shared/Header.vue';
     import Footer from './components/Shared/Footer.vue';
-    import Servers from './components/Server/Servers.vue';
+    import Servers from './components/Server/ServersList.vue';
     import ServerDetails from './components/Server/ServerDetails.vue';
 
     export default {
@@ -23,7 +28,20 @@
             Servers,
             'app-server-details': ServerDetails,
             'app-footer': Footer
-        }
+        },
+        data() {
+            return {
+                selectedServer: null,
+            }
+        },
+        methods: {
+            selectServer: function (server) {
+                this.selectedServer = server;
+            },
+            resetServer: function () {
+                this.selectedServer = null;
+            },
+        },
     }
 </script>
 

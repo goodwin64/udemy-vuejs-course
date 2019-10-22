@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
+import './filters/wordLength'
 
 Vue.filter('to-lowercase', function(value) {
     return value.toLowerCase();

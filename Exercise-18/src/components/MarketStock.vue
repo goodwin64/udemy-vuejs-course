@@ -6,9 +6,18 @@
             </div>
             <div class="card-body">
                 <div class="row justify-content-between">
-                    <input type="number" placeholder="Quantity:" min="1" :max="maxStocksCount"
-                           v-model.number="stocksCountToBuy">
-                    <button class="btn btn-secondary" @click="buyStocks">Buy</button>
+                    <input
+                            type="number"
+                            placeholder="Quantity:"
+                            min="1"
+                            :max="maxStocksCount"
+                            v-model.number="stocksCountToBuy"
+                    >
+                    <button
+                            class="btn btn-secondary"
+                            @click="buyStocks"
+                            :disabled="!isQuantityValid"
+                    >Buy</button>
                 </div>
             </div>
         </div>
@@ -32,6 +41,9 @@
       maxStocksCount() {
         return Math.floor(this.totalFunds / this.price);
       },
+      isQuantityValid() {
+        return Number.isInteger(this.stocksCountToBuy) && this.stocksCountToBuy < this.maxStocksCount;
+      },
     },
     methods: {
       buyStocks() {
@@ -39,6 +51,7 @@
           companyName: this.companyName,
           stocksCount: this.stocksCountToBuy,
         });
+        this.stocksCountToBuy = undefined;
       },
     },
   };

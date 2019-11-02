@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import random from 'random-all';
 
 Vue.use(Vuex);
 
@@ -46,6 +47,12 @@ export default new Vuex.Store({
         myStock.count -= stocksCount;
       }
       state.myStocks = state.myStocks.filter(({ count }) => count > 0);
+    },
+    endDay(state) {
+      state.marketStocks.forEach(stock => {
+        const minDelta = stock.price < 20 ? 0 : -10;
+        stock.price += random.getInt(minDelta, +10);
+      });
     },
   },
   actions: {},

@@ -1,23 +1,28 @@
 <template>
   <header class="header">
-    <div class="header-left">
+    <nav class="header-left">
       <h2 class="logo">Stock trader</h2>
-      <router-link to="/">Home</router-link>
-      <router-link to="/portfolio">Portfolio</router-link>
-      <router-link to="/stocks">Stocks</router-link>
-    </div>
+      <router-link class="p-2" to="/">Home</router-link>
+      <router-link class="p-2" to="/stocks/my">My stocks</router-link>
+      <router-link class="p-2" to="/stocks/buy">Buy stocks</router-link>
+    </nav>
 
     <div class="header-right">
-      <button>End day</button>
-      <button>Save & load</button>
-      <p>Funds: $10'000</p>
+      <button class="btn btn-primary">End day</button>
+      <button class="btn btn-secondary" disabled>Save & load</button>
+      <p>Funds: {{totalFunds | currency}}</p>
     </div>
   </header>
 </template>
 
 <script>
+  import { mapGetters } from 'vuex';
+
   export default {
     name: 'Header',
+    computed: {
+      ...mapGetters(['totalFunds'])
+    }
   };
 </script>
 
@@ -31,5 +36,13 @@
   .header-right {
     display: flex;
     justify-content: space-between;
+  }
+
+  li {
+    display: inline;
+  }
+
+  .router-link-exact-active {
+    border-bottom: 3px solid var(--primary);
   }
 </style>

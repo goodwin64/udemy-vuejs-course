@@ -5,6 +5,17 @@ import store from './store'
 
 Vue.config.productionTip = false
 
+if (VueCurrencyFilter) {
+  Vue.use(VueCurrencyFilter, {
+    symbol: "$",
+    thousandsSeparator: "'",
+    fractionCount: 0,
+    fractionSeparator: ".",
+    symbolPosition: "front",
+    symbolSpacing: false
+  })
+}
+
 new Vue({
   router,
   store,

@@ -42,7 +42,7 @@
         return Math.floor(this.totalFunds / this.price);
       },
       isQuantityValid() {
-        return Number.isInteger(this.stocksCountToBuy) && this.stocksCountToBuy < this.maxStocksCount;
+        return Number.isInteger(this.stocksCountToBuy) && this.stocksCountToBuy <= this.maxStocksCount;
       },
     },
     methods: {

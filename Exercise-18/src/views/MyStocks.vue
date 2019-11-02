@@ -3,7 +3,7 @@
     <h1>My stocks:</h1>
     <p v-if="myStocks.length === 0">You have no stocks</p>
     <div v-else class="row">
-      <my-stock v-for="stock in myStocks" v-bind="stock"></my-stock>
+      <my-stock v-for="stock in myStocks" v-bind="stock" :key="stock.companyName"></my-stock>
     </div>
   </div>
 </template>

@@ -2,7 +2,12 @@
     <div>
         <h1>Buy stocks</h1>
         <div class="row">
-            <market-stock v-for="stock in marketStocks" v-bind="stock" :totalFunds="totalFunds"></market-stock>
+            <market-stock
+                    v-for="stock in marketStocks"
+                    v-bind="stock"
+                    :key="stock.companyName"
+                    :totalFunds="totalFunds"
+            ></market-stock>
         </div>
     </div>
 </template>

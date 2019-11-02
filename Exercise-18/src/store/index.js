@@ -19,6 +19,7 @@ export default new Vuex.Store({
     totalFunds: state => state.totalFunds,
     myStocks: state => state.myStocks,
     marketStocks: state => state.marketStocks,
+    entireStore: state => state,
   },
   mutations: {
     buyStocks(state, { companyName, stocksCount }) {
@@ -54,6 +55,11 @@ export default new Vuex.Store({
         stock.price += random.getInt(minDelta, +10);
       });
     },
+    loadData(state, loadData) {
+      state.totalFunds = loadData.totalFunds;
+      state.myStocks = loadData.myStocks;
+      state.marketStocks = loadData.marketStocks;
+    }
   },
   actions: {},
   modules: {},

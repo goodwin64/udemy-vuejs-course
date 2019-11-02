@@ -7,8 +7,14 @@
             <div class="card-body">
                 <div class="row justify-content-between">
                     <div>
-                        <input type="number" placeholder="Quantity:" min="1" :max="count"
-                               v-model.number="stocksCountToSell">
+                        <input
+                                type="number"
+                                placeholder="Quantity:"
+                                min="1"
+                                :max="count"
+                                v-model.number="stocksCountToSell"
+                                v-on:keypress.enter="sellStocks"
+                        >
                         <button @click="stocksCountToSell = undefined">clear</button>
                         <button @click="stocksCountToSell = count">all</button>
                     </div>
@@ -25,7 +31,7 @@
     data() {
       return {
         stocksCountToSell: undefined,
-      }
+      };
     },
     methods: {
       sellStocks() {
@@ -34,7 +40,7 @@
           stocksCount: this.stocksCountToSell,
         });
         this.stocksCountToSell = undefined;
-      }
+      },
     },
     props: {
       companyName: String,

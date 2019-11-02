@@ -5,11 +5,11 @@
             <router-link class="p-2" to="/">Home</router-link>
             <router-link class="p-2" to="/stocks/my">My stocks</router-link>
             <router-link class="p-2" to="/stocks/buy">Buy stocks</router-link>
+            <router-link class="p-2" to="/save-or-load">Save/load</router-link>
         </nav>
 
         <div class="header-right">
             <button class="btn btn-primary" @click="endDay">End day</button>
-            <button class="btn btn-secondary" disabled>Save & load</button>
             <p>Funds: {{totalFunds | currency}}</p>
         </div>
     </header>

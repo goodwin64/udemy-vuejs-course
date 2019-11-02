@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Home from '../views/Home.vue';
+import SaveOrLoad from '../views/SaveOrLoad';
 
 Vue.use(VueRouter);
 
@@ -19,6 +20,11 @@ const routes = [
     path: '/stocks/buy',
     name: 'buyStocks',
     component: () => import(/* webpackChunkName: "BuyStocks" */ '../views/BuyStocks.vue'),
+  },
+  {
+    path: '/save-or-load',
+    name: 'saveLoad',
+    component: SaveOrLoad,
   },
 ];
 

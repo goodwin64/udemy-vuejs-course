@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "vuex-router-sync": "^5.0.0"
+  }
+}
